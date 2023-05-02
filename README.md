@@ -17,7 +17,7 @@ As part of a complete guide to React this is a follow along tutorial to create a
 
 ## Usage
 
-# Contributors
+## Contributors
 
 ## Licence 
 
