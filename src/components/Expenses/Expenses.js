@@ -1,6 +1,6 @@
 import React from 'react';
 import './Expenses.css';
-import ExpenseItem from '../components/ExpenseItem';
+import ExpenseItem from '../Expenses/ExpenseItem';
 import Card from '../UI/Card';
 
 const Expenses = ({expenses}) => {
