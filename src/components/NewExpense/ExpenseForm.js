@@ -5,43 +5,43 @@ import './ExpenseForm.css'
 
 const ExpenseForm = () => {
     //storing the value of the title entered passing an objectinto useState 
-    const [userInput, setUserInput] = useState({
-        enteredTitle: '',
-        enteredAmount: '',
-        enteredDate: ''
-    });
+   const [enteredTitle, setEnteredTitle] = useState("");
+   const [enteredAmount, setEnteredAmount] = useState("");
+   const [enteredDate, setEnteredDate] = useState("");
 
     //will be executed whenever the title changes
     //event is a deafualt object that the broswer will identify 
     const titleChangeHandler = (event) => {
-        setUserInput({
-            //this copying in the state data set as default in the useState to make sure the other values are not lost 
-            //then overwrites enteredTitle 
-            ...userInput,
-            enteredTitle: event.target.value,
-        })  
+      setEnteredTitle(event.target.value)
     }
+
     const amountChangeHandler = (event) => {
-      setUserInput({
-        //this copying in the state data set as default in the useState to make sure the other values are not lost
-        //then overwrites enteredTitle
-        ...userInput,
-        enteredAmount: event.target.value,
-      });
+    //   setUserInput({
+    //     ...userInput,
+    //     enteredAmount: event.target.value,
+    //   });
+        setEnteredAmount(event.target.value)
     };
+
     const dateChangeHandler = (event) => {
-      setUserInput({
-        //this copying in the state data set as default in the useState to make sure the other values are not lost
-        //then overwrites enteredTitle
-        ...userInput,
-        enteredDate: event.target.value,
-      });
+      setEnteredDate(event.target.value)
     };
-    
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            //will parse date string and convert into a date object 
+            date: new Date(enteredDate)
+        };
+        console.log(expenseData)
+    }
     
 
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
