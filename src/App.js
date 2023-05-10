@@ -24,11 +24,17 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  //this will console log the data passed from newExpense 
+  const addExpenseHandler = (expense) => {
+    console.log('in App.js');
+    console.log(expense)
+  }
   
   return (
     <div>
   {/* NewExpense holds the expenseForm component */}
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler}/>
     {/* Expenses holds each expenseItem prop which has the data passed through from this component*/}
       <Expenses expenses={expenses} />
 

@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import './ExpenseForm.css'
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     //storing the value of the title entered passing an objectinto useState 
    const [enteredTitle, setEnteredTitle] = useState("");
    const [enteredAmount, setEnteredAmount] = useState("");
@@ -29,21 +29,25 @@ const ExpenseForm = () => {
 
     //function to submit the data from the form 
     const submitHandler = (event) => {
-        event.preventDefault();
+      event.preventDefault();
 
-        //creating an object and setting the key value pairs of the state from the content of the form 
-        const expenseData = {
-            title: enteredTitle,
-            amount: enteredAmount,
-            //will parse date string and convert into a date object 
-            date: new Date(enteredDate)
-        };
-        console.log(expenseData)
-        //then resetting the state back to an empty string 
-        //overrides what the user has entered 
-        setEnteredAmount('');
-        setEnteredDate('');
-        setEnteredTitle('');
+      //creating an object and setting the key value pairs of the state from the content of the form
+      const expenseData = {
+        title: enteredTitle,
+        amount: enteredAmount,
+        //will parse date string and convert into a date object
+        date: new Date(enteredDate),
+      };
+      console.log(expenseData);
+      
+      //this is accessing the prop function we set in newExpense form to pull the data from here to that component
+      //by calling this here will just pass the data from here to that component 
+      props.onSaveExpenseData(expenseData);
+      //then resetting the state back to an empty string
+      //overrides what the user has entered
+      setEnteredAmount("");
+      setEnteredDate("");
+      setEnteredTitle("");
     }
     
 
