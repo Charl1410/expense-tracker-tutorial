@@ -35,7 +35,7 @@ function App() {
     <div>
   {/* NewExpense holds the expenseForm component */}
       <NewExpense onAddExpense={addExpenseHandler}/>
-    {/* Expenses holds each expenseItem prop which has the data passed through from this component*/}
+    {/* Expenses holds each expenseItem prop which has the array data passed through from this component*/}
       <Expenses expenses={expenses} />
 
     </div>

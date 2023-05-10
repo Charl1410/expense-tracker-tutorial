@@ -5,8 +5,10 @@ import './ExpenseItem.css';
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 
+//function to make the individual expense cards 
 const ExpenseItem = (props) => {
   //state to hold the value of the card expense and it can be updated by clicking the button 
+
   const [title, setTitle] = useState(props.title);
 
   const handleClick = () => {
