@@ -27,9 +27,11 @@ const ExpenseForm = () => {
       setEnteredDate(event.target.value)
     };
 
+    //function to submit the data from the form 
     const submitHandler = (event) => {
         event.preventDefault();
 
+        //creating an object and setting the key value pairs of the state from the content of the form 
         const expenseData = {
             title: enteredTitle,
             amount: enteredAmount,
@@ -37,6 +39,11 @@ const ExpenseForm = () => {
             date: new Date(enteredDate)
         };
         console.log(expenseData)
+        //then resetting the state back to an empty string 
+        //overrides what the user has entered 
+        setEnteredAmount('');
+        setEnteredDate('');
+        setEnteredTitle('');
     }
     
 
@@ -45,7 +52,7 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input onChange={titleChangeHandler} type="text" />
+          <input onChange={titleChangeHandler} type="text" value={enteredTitle} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -53,6 +60,7 @@ const ExpenseForm = () => {
             type="number"
             min="0.01"
             step="0.01"
+            value={enteredAmount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -62,6 +70,7 @@ const ExpenseForm = () => {
             type="date"
             min="2019-01-01"
             max="2022-12-31"
+            value={enteredDate}
             onChange={dateChangeHandler}
           />
         </div>

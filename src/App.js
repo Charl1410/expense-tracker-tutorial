@@ -27,7 +27,9 @@ function App() {
   
   return (
     <div>
+  {/* NewExpense holds the expenseForm component */}
       <NewExpense />
+    {/* Expenses holds each expenseItem prop which has the data passed through from this component*/}
       <Expenses expenses={expenses} />
 
     </div>
