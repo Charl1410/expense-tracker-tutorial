@@ -1,9 +1,9 @@
+import React, {useState} from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-
-function App() {
-  //this needs to stay in this file 
-  const expenses = [
+ 
+//this needs to stay in this file 
+  const DUMMY_EXPENSES = [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -25,18 +25,25 @@ function App() {
     },
   ];
 
-  //this will console log the data passed from newExpense 
+function App() {
+  //setting the state of expense array to the dummy data
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
+  
+  //this is triggered every time a new expense is added (onAddExpense is a function called in NewExpense form that passes in the new expense data as a param) 
+  //function will add new expense onto the array of the previous state array 
   const addExpenseHandler = (expense) => {
-    console.log('in App.js');
-    console.log(expense)
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    })
+   
   }
   
   return (
     <div>
-  {/* NewExpense holds the expenseForm component */}
+  {/* NewExpense holds the expenseForm component and this addExpenseHanler pulls through the data submitted from the form  */}
       <NewExpense onAddExpense={addExpenseHandler}/>
     {/* Expenses holds each expenseItem prop which has the array data passed through from this component*/}
-      <Expenses expenses={expenses} />
+      <Expenses items={expenses} />
 
     </div>
   );
