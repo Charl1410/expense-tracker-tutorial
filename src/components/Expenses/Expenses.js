@@ -18,6 +18,7 @@ const Expenses = (props) => {
       {/* expense represents each item which is an object in the array then we define the key val pairs in the array  */}
       {props.items.map(expense => (
        <ExpenseItem 
+       key={expense.id}
        title={expense.title}
        amount={expense.amount}
        date={expense.date}
