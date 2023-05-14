@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './Expenses.css';
-import ExpenseItem from '../Expenses/ExpenseItem';
 import Card from '../UI/Card';
 import ExpenseFilter from '../Expenses/ExpensesFilter'
+import ExpensesList from './ExpensesList';
 
+//this holds the selected year passed through from expensesFilter
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState('2020')
   const saveYearHandler = (yearSelected) => {
@@ -16,6 +17,7 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
+
   return (
     <>
       <Card className="expenses">
@@ -23,19 +25,8 @@ const Expenses = (props) => {
           selected={filteredYear}
           onSaveYearSelected={saveYearHandler}
         />
-        {/* expense represents each item which is an object in the array then we define the key val pairs in the array  */}
-        {/* displaying the filtered expenses which takes the given array from the main array and has been filtered to the date */}
-        {filteredExpenses.length === 0 && <p>No expenses found</p>}
-        {filteredExpenses.length > 0 &&
-          filteredExpenses.map((expense) => (
-            <ExpenseItem
-              key={expense.id}
-              title={expense.title}
-              amount={expense.amount}
-              date={expense.date}
-            />
-          ))}
-        
+        {/* filtered expenses need to be passed through here to the component */}
+      <ExpensesList items={filteredExpenses} />        
       </Card>
     </>
   );
