@@ -15,6 +15,8 @@ const NewExpense = (props) => {
     };
     // console.log(expenseData);
     props.onAddExpense(expenseData)
+    //closes the form 
+    stopEditing();
   }
 
   const [isEditing, setIsEditing] = useState(false)
@@ -37,8 +39,6 @@ const NewExpense = (props) => {
           onSaveExpenseData={saveExpenseDataHandler}
         />
       )}
-
-      {/* this function is not being used here but can now be used in expense form to push data to here */}
     </div>
   );
 
