@@ -18,6 +18,7 @@ const NewExpense = (props) => {
   }
   return (
     <div className='new-expense'>
+      
       {/* this function is not being used here but can now be used in expense form to push data to here */}
         <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>

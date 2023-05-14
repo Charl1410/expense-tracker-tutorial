@@ -5,13 +5,10 @@ import { useState } from 'react';
 
 
 const ExpensesFilter = (props) => {
-  const [yearSelected, setYearSelected] = useState('');
-
   //TODO create a filter section component that allows us to use a drop down and filter the year e.g. 2021
   const handleSelectChange = (event) => {
-    console.log(event.target.value)
-    setYearSelected(event.target.value);
-    props.onSaveYearSelected(yearSelected);
+    //this function is made in expenses.js and pushed the data through and stores it in state there
+    props.onSaveYearSelected(event.target.value);
   };
   return (
     <div className="expenses-filter">

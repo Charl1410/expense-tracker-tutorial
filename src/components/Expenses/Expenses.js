@@ -8,6 +8,7 @@ import ExpensesList from './ExpensesList';
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState('2020')
   const saveYearHandler = (yearSelected) => {
+    console.log('expenses js ' + yearSelected)
     setFilteredYear(yearSelected);
   }
 
