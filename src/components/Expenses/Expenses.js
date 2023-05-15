@@ -3,6 +3,8 @@ import './Expenses.css';
 import Card from '../UI/Card';
 import ExpenseFilter from '../Expenses/ExpensesFilter'
 import ExpensesList from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
+
 
 //this holds the selected year passed through from expensesFilter
 //sets state to the year selected in the filter component
@@ -26,6 +28,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onSaveYearSelected={saveYearHandler}
         />
+        <ExpensesChart expenses={filteredExpenses} />
         {/* filtered expenses need to be passed through here to the component */}
       <ExpensesList items={filteredExpenses} />        
       </Card>
