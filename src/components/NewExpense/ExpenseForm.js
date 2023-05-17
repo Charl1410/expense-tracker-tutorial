@@ -34,7 +34,7 @@ const ExpenseForm = (props) => {
       //creating an object and setting the key value pairs of the state from the content of the form
       const expenseData = {
         title: enteredTitle,
-        amount: enteredAmount,
+        amount: +enteredAmount,
         //will parse date string and convert into a date object
         date: new Date(enteredDate),
       };
