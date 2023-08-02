@@ -1,10 +1,11 @@
-# expense tracker 
+# Expense Tracker 
 
  ## Table of contents
 
   * [Description](#Description)
   * [Instillation](#Instillation)
   * [Usage](#Usage)
+  * [Screenshots](#Screenshots)
   * [Contributors](#Contributing)
   * [Licence](#License)
   * [Questions](#Questions)
